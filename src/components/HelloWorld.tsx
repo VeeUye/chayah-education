@@ -1,5 +1,5 @@
 const HelloWorld = () => {
-    return <div>Hello, World!</div>;
-};
+  return <div>Hello, World! </div>
+}
 
-export default HelloWorld;
+export default HelloWorld
