@@ -5,8 +5,8 @@ export const PageSchema = z.object({
   pageTitle: z.string(),
   slug: z.string(),
   bodyContent: z.any(),
-  seoTitle: z.string().optional(),
-  seoDescription: z.string().optional(),
+  seoTitle: z.string().nullable(),
+  seoDescription: z.string().nullable(),
 })
 
 export type Page = z.infer<typeof PageSchema>

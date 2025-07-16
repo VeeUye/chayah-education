@@ -17,8 +17,10 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
+    "@contentful/rich-text-react-renderer": "^16.1.0",
     "@vitejs/plugin-react": "^4.6.0",
     "astro": "^5.11.1",
+    "contentful": "^11.7.7",
     "react": "^19.1.0"
   },
   "devDependencies": {
