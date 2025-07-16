@@ -1,0 +1,57 @@
+name: Build and Deploy to Staging & Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # This job builds the site and uploads it as an artifact
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build your Astro site
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  # This job deploys the artifact to a temporary staging URL
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Staging Environment
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # This job waits for manual approval before deploying to the live site
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Production Environment
+        id: deployment
+        uses: actions/deploy-pages@v4
