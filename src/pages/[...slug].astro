@@ -1,0 +1,26 @@
+---
+import { getPageBySlug } from '../lib/contentful'
+import Layout from '../layouts/Layout.astro'
+import RichText from '../components/atoms/RichText'
+
+const { slug } = Astro.params
+
+if (slug === undefined) {
+    return new Response(null, { status: 404 })
+}
+
+const page = await getPageBySlug(slug)
+
+if (!page) {
+    return new Response(null, { status: 404 })
+}
+---
+
+<Layout title={page.seoTitle || page.pageTitle}>
+    <main class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold mb-4">{page.pageTitle}</h1>
+        <div class="prose">
+            <RichText content={page.bodyContent} client:visible />
+        </div>
+    </main>
+</Layout>
