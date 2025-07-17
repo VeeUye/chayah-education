@@ -2,6 +2,7 @@ import { createClient } from 'contentful'
 import type { Entry } from 'contentful'
 import type { Page } from '../schemas/page'
 
+// 1. Client Setup
 const spaceId = import.meta.env.CONTENTFUL_SPACE_ID
 const accessToken = import.meta.env.CONTENTFUL_ACCESS_TOKEN
 
@@ -16,6 +17,7 @@ const client = createClient({
   accessToken: accessToken,
 })
 
+// 2.Transform the raw data
 function toPage(entry: Entry<any>): Page {
   return {
     internalTitle: String(entry.fields.internalTitle || ''),
@@ -27,6 +29,7 @@ function toPage(entry: Entry<any>): Page {
   }
 }
 
+// 3. Fetch a single page by its slug
 export async function getPageBySlug(slug: string): Promise<Page | null> {
   const response = await client.getEntries({
     content_type: 'page',
@@ -41,4 +44,17 @@ export async function getPageBySlug(slug: string): Promise<Page | null> {
   }
 
   return toPage(item as Entry<any>)
+}
+
+// 4. Fetch all page slugs for static site generation
+export async function getAllPageSlugs(): Promise<{ slug: string }[]> {
+  const response = await client.getEntries({
+    content_type: 'page',
+    select: ['fields.slug'],
+  })
+
+  return (
+    response.items?.map((item) => ({ slug: String(item.fields.slug || '') })) ||
+    []
+  )
 }
