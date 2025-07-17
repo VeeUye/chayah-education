@@ -1,16 +1,24 @@
 ---
-import { getPageBySlug } from '../lib/contentful'
+import { getPageBySlug, getAllPageSlugs } from '../lib/contentful'
 import Layout from '../layouts/Layout.astro'
 import RichText from '../components/atoms/RichText'
 
-const { slug } = Astro.params
+export async function getStaticPaths() {
+    const allPages = await getAllPageSlugs()
 
+    return allPages.map(({ slug }) => {
+        return {
+            params: { slug: slug },
+        }
+    })
+}
+
+const { slug } = Astro.params
 if (slug === undefined) {
     return new Response(null, { status: 404 })
 }
 
 const page = await getPageBySlug(slug)
-
 if (!page) {
     return new Response(null, { status: 404 })
 }
