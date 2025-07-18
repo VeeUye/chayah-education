@@ -9,9 +9,12 @@ if (!homepage) {
 	return new Response('Homepage content not found', { status: 500 })
 }
 
+const pageTitle = homepage.seoTitle || homepage.heroTitle
+
+
 ---
 
-<Layout title="Chayah Education | Home">
+<Layout title={pageTitle}>
 	<Hero
 		title={homepage.heroTitle}
 		subtitle={homepage.heroSubtitle}
