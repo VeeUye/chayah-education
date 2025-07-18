@@ -1,10 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/organisms/Hero/index'
-import {stubbedHeroProps} from "../components/organisms/Hero/test-data";
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/organisms/Hero'
+import { getHomepage } from '../lib/contentful'
+
+const homepage = await getHomepage()
+
+if (!homepage) {
+	return new Response('Homepage content not found', { status: 500 })
+}
 
 ---
 
-<Layout>
-	<Hero {...stubbedHeroProps} />
+<Layout title="Chayah Education | Home">
+	<Hero
+		title={homepage.heroTitle}
+		subtitle={homepage.heroSubtitle}
+		buttonText={homepage.heroCtaButton}
+		buttonLink={homepage.heroCtaButtonLink}
+		client:load
+	/>
 </Layout>

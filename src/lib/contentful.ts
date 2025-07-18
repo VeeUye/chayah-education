@@ -1,6 +1,7 @@
 import { createClient } from 'contentful'
 import type { Entry } from 'contentful'
 import type { Page } from '../schemas/page'
+import { HomepageSchema, type Homepage } from '../schemas/homepage'
 
 // 1. Client Setup
 const spaceId = import.meta.env.CONTENTFUL_SPACE_ID
@@ -57,4 +58,34 @@ export async function getAllPageSlugs(): Promise<{ slug: string }[]> {
     response.items?.map((item) => ({ slug: String(item.fields.slug || '') })) ||
     []
   )
+}
+
+export async function getHomepage(): Promise<Homepage | null> {
+  const response = await client.getEntries({
+    content_type: 'homepage',
+    limit: 1,
+  })
+
+  if (!response.items || response.items.length === 0) {
+    return null
+  }
+
+  const entry = response.items?.[0]
+
+  if (!entry) {
+    return null
+  }
+
+  const transformed = {
+    internalTitle: String(entry.fields.internalTitle || ''),
+    heroTitle: String(entry.fields.heroTitle || ''),
+    heroSubtitle: String(entry.fields.heroSubtitle || ''),
+    heroCtaButton: String(entry.fields.heroCtaButton || ''),
+    heroCtaButtonLink: String(entry.fields.heroCtaButtonLink || ''),
+    introductoryContent: entry.fields.introductoryContent || null,
+    seoTitle: entry.fields.seoTitle || null,
+    seoDescription: entry.fields.seoDescription || null,
+  }
+
+  return HomepageSchema.parse(transformed)
 }
