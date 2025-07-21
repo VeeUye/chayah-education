@@ -1,0 +1,13 @@
+@use 'src/styles/abstracts/mixins' as *;
+@use 'src/styles/abstracts/variables' as *;
+
+.container {
+  width: 100%;
+  max-width: $max-width-container;
+
+  margin-inline: auto;
+
+  $container-padding: map-get($responsive-spacing, 'container');
+
+  @include responsive-property('padding-inline', $container-padding);
+}

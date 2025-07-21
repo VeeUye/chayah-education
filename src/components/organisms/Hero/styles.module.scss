@@ -1,0 +1,17 @@
+@use 'src/styles/abstracts/mixins' as *;
+@use 'src/styles/abstracts/variables' as *;
+
+.base {
+
+}
+
+.heroImage {
+  // Add properties for size and position
+  width: 50%;
+  height: 600px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+
+}

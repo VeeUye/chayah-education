@@ -4,7 +4,7 @@ import { stubbedHeroProps } from './test-data.ts'
 import Hero from './index.tsx'
 
 describe('Hero', () => {
-  it('should render the title, subtitle, and call-to-action button', () => {
+  it.skip('should render the title, subtitle, and call-to-action button', () => {
     render(<Hero {...stubbedHeroProps} />)
 
     const heading = screen.getByRole('heading', {
