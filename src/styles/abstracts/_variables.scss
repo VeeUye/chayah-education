@@ -26,3 +26,17 @@ $border-radius-sm: 4px;
 $border-radius-md: 8px;
 $transition-duration: 300ms;
 $transition-timing-function: ease-in-out;
+
+//  Box Shadows
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+// Responsive Spacing Map
+// Format: 'key': (mobile-value, tablet-value, desktop-value)
+$responsive-spacing: (
+        'section': (var(--spacing-8), 3rem, 4rem),      // e.g., for vertical padding on a page section
+        'container': (var(--spacing-4), 2rem, 3rem),    // e.g., for horizontal padding on a container
+        'gutter': (var(--spacing-4), 1.5rem, 2rem)      // e.g., for grid-gap
+);

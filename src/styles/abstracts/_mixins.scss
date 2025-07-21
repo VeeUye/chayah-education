@@ -46,3 +46,19 @@ $breakpoints: (
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+// ✅ Responsive Property
+// Applies a CSS property with different values based on breakpoints.
+// @param $property - The CSS property to set (e.g., 'padding', 'gap').
+// @param $values - A list of values: (mobile, tablet, desktop).
+@mixin responsive-property($property, $values) {
+  #{$property}: nth($values, 1); // Mobile-first value
+
+  @include mq('md') { // Tablet
+    #{$property}: nth($values, 2);
+  }
+
+  @include mq('lg') { // Desktop
+    #{$property}: nth($values, 3);
+  }
+}

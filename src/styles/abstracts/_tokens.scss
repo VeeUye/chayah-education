@@ -30,6 +30,12 @@
   --spacing-6: #{$spacing-unit * 3};   // 24px
   --spacing-8: #{$spacing-unit * 4};   // 32px
 
+  // Shadow Tokens
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+
   // Other Tokens
   --border-radius-sm: #{$border-radius-sm};
   --border-radius-md: #{$border-radius-md};
