@@ -1,0 +1,9 @@
+// 1. Abstracts: Variables, functions, and mixins that don't output CSS.
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// 2. Tokens: Defines CSS custom properties on the :root.
+@use 'abstracts/tokens';
+
+// 3. Base: Global styles, resets, and default element styles.
+@use 'base/reset';

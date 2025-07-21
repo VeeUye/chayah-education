@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+:root {
+  // Color Tokens (Semantic Naming)
+  // Maps the raw color palette to its intended purpose
+  --color-primary: #{$color-blue-500};
+  --color-primary-hover: #{$color-blue-700};
+  --color-text-primary: #{$color-gray-900};
+  --color-text-secondary: #{$color-gray-500};
+  --color-background: #{$color-gray-50};
+  --color-surface: #fff;
+  --color-border: #{$color-gray-300};
+
+  // Font Tokens
+  --font-family-sans: #{$font-family-sans};
+  --font-family-mono: #{$font-family-mono};
+
+  // Font Size Tokens (using rems for accessibility)
+  --font-size-xs: 0.75rem;   // 12px
+  --font-size-sm: 0.875rem;  // 14px
+  --font-size-md: 1rem;      // 16px
+  --font-size-lg: 1.125rem;  // 18px
+  --font-size-xl: 1.25rem;   // 20px
+
+  // Spacing Tokens
+  --spacing-1: #{$spacing-unit * 0.5}; // 4px
+  --spacing-2: #{$spacing-unit};       // 8px
+  --spacing-3: #{$spacing-unit * 1.5}; // 12px
+  --spacing-4: #{$spacing-unit * 2};   // 16px
+  --spacing-6: #{$spacing-unit * 3};   // 24px
+  --spacing-8: #{$spacing-unit * 4};   // 32px
+
+  // Other Tokens
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --transition-duration: #{$transition-duration};
+  --transition-timing: #{$transition-timing-function};
+}
