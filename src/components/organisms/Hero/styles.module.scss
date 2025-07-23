@@ -2,16 +2,39 @@
 @use 'src/styles/abstracts/variables' as *;
 
 .base {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  gap: 2rem;
+}
 
+.heroText {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroTitle {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-size: 3rem ;
+}
+
+.heroSubtitle {
+  width: 500px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  margin-bottom: 2rem;
 }
 
 .heroImage {
-  // Add properties for size and position
-  width: 50%;
-  height: 600px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-left: auto;
+  width: 40%;
+}
 
+.svg {
+  width: 100%;
+  height: auto;
 }

@@ -1,0 +1,19 @@
+---
+to: src/components/<%= type %>/<%= name %>/index.tsx
+---
+import styles from './styles.module.scss';
+
+export interface <%= name %>Props {
+className?: string;
+}
+
+const <%= name %> = ({ className = '', ...rest }: <%= name %>Props) => {
+return (
+<div className={`${styles.base} ${className}`} {...rest}>
+    {/* TODO: Add component JSX */}
+    <%= name %> Component
+</div>
+);
+};
+
+export default <%= name %>;

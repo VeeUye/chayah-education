@@ -1,0 +1,53 @@
+---
+to: src/components/<%= type %>/<%= name %>/index.test.tsx
+---
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { describe, it, expect } from 'vitest'
+
+// Import from the directory's index file
+import <%= name %>, { type <%= name %>Props } from '.'
+
+const setup = (props: Partial<<%= name %>Props> = {}) => {
+    const user = userEvent.setup()
+    const view = render( <<%= name %> {...props} />
+    )
+    return {
+    user,
+    ...view,
+    }
+    }
+
+    describe('<<%= name %> />', () => {
+    it('renders correctly with default props', () => {
+    setup()
+    expect(screen.getByText('<%= name %> Component')).toBeInTheDocument()
+    })
+
+    it('applies a custom className when provided', () => {
+    const customClass = 'my-special-class'
+    setup({ className: customClass })
+
+    const componentElement = screen.getByText('<%= name %> Component')
+    expect(componentElement).toHaveClass(customClass)
+    })
+
+    // TODO: Add more tests for component behavior and user interactions.
+    /*
+    // Example of an interaction test using the setup function:
+    it('calls the onClick handler when clicked', async () => {
+    const onClickSpy = vi.fn();
+    // 1. Destructure the user instance from the setup function
+    const { user } = setup({ onClick: onClickSpy });
+
+    // 2. Find the element a user would interact with
+    const button = screen.getByRole('button');
+
+    // 3. Simulate the user's action
+    await user.click(button);
+
+    // 4. Assert the expected outcome
+    expect(onClickSpy).toHaveBeenCalledTimes(1);
+    });
+    */
+    })

@@ -8,38 +8,65 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  // Start with the recommended presets
   extends: [
     'eslint:recommended',
     'plugin:astro/recommended',
     'plugin:astro/jsx-a11y-recommended',
-    'prettier', // This must be last
   ],
-  // Main parser for TypeScript files
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 'latest',
   },
   overrides: [
+    // --- Configuration for Astro Components ---
     {
-      // Configuration for your Astro components
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
-      // Extend TypeScript rules for the script part of Astro files
       extends: ['plugin:@typescript-eslint/recommended'],
     },
+    // --- Configuration for React/TypeScript Files ---
     {
-      // This is the key fix for your astro.config.mjs file
-      files: ['astro.config.mjs'],
-      // We are only turning off the "not defined" rule for this one specific file
-      rules: {
-        'no-undef': 'off',
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:react/jsx-runtime', // For the new JSX transform
+        'plugin:jsx-a11y/recommended',
+      ],
+      settings: {
+        react: {
+          version: 'detect', // Automatically detect the React version
+        },
       },
+      rules: {
+        'react/prop-types': 'off', // Not needed when using TypeScript for props
+      },
+    },
+    // --- Configuration for Node.js Scripts & Configs ---
+    {
+      // This glob now includes .cjs files to correctly lint all config files
+      files: [
+        '.eslintrc.cjs',
+        '*.cjs', // Catches .cz-config.cjs and other root .cjs files
+        'astro.config.mjs',
+        '_templates/**/*.js',
+      ],
+      env: {
+        node: true, // Defines globals like `module`, `require`, and `process`
+      },
+      rules: {
+        // You can add Node-specific rule overrides here if needed
+      },
+    },
+    // Prettier must be last to override all other formatting rules
+    {
+      files: ['*'],
+      extends: ['prettier'],
     },
   ],
 }
