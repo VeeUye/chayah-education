@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ChayahLogo from '../../../assets/logo-transparant-no-text.svg?react'
+import styles from './styles.module.scss'
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -14,9 +16,8 @@ const Header = () => {
     <header className="bg-white shadow">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="text-xl font-bold text-gray-800">
-            Chayah Education
-          </a>
+          <ChayahLogo className={styles.logo} />
+          <span>Chayah Education</span>
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center md:space-x-6">
             {navLinks.map((link) => (

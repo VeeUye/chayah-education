@@ -9,24 +9,24 @@
 }
 
 .heroText {
+  
   width: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .heroTitle {
-  text-align: center;
+  text-align: left;
   font-weight: bold;
-  margin-bottom: 2rem;
-  font-size: 3rem ;
+  font-size: 4rem;
 }
 
 .heroSubtitle {
   width: 500px;
-  text-align: center;
-  font-size: var(--font-size-sm);
+  text-align: left;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
 }
 
