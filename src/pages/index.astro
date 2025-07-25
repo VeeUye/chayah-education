@@ -1,25 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/organisms/Hero'
-import { getHomepage } from '../lib/contentful'
+import {getHomepage} from '../lib/contentful'
 
 const homepage = await getHomepage()
 
 if (!homepage) {
-	return new Response('Homepage content not found', { status: 500 })
+    return new Response('Homepage content not found', {status: 500})
 }
 
 const pageTitle = homepage.seoTitle || homepage.heroTitle
-
-
 ---
 
 <Layout title={pageTitle}>
-	<Hero
-		title={homepage.heroTitle}
-		subtitle={homepage.heroSubtitle}
-		buttonText={homepage.heroCtaButton}
-		buttonLink={homepage.heroCtaButtonLink}
-		client:load
-	/>
+    <Hero
+            title={homepage.heroTitle}
+            subtitle={homepage.heroSubtitle}
+            buttonText={homepage.heroCtaButton}
+            buttonLink={homepage.heroCtaButtonLink}
+            client:load
+    />
+
 </Layout>

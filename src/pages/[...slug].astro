@@ -1,26 +1,26 @@
 ---
-import { getPageBySlug, getAllPageSlugs } from '../lib/contentful'
+import {getPageBySlug, getAllPageSlugs} from '../lib/contentful'
 import Layout from '../layouts/Layout.astro'
 import RichText from '../components/atoms/RichText'
 
 export async function getStaticPaths() {
     const allPages = await getAllPageSlugs()
 
-    return allPages.map(({ slug }) => {
+    return allPages.map(({slug}) => {
         return {
-            params: { slug: slug },
+            params: {slug: slug},
         }
     })
 }
 
-const { slug } = Astro.params
+const {slug} = Astro.params
 if (slug === undefined) {
-    return new Response(null, { status: 404 })
+    return new Response(null, {status: 404})
 }
 
 const page = await getPageBySlug(slug)
 if (!page) {
-    return new Response(null, { status: 404 })
+    return new Response(null, {status: 404})
 }
 ---
 
@@ -28,7 +28,7 @@ if (!page) {
     <main class="container mx-auto p-4">
         <h1 class="text-4xl font-bold mb-4">{page.pageTitle}</h1>
         <div class="prose">
-            <RichText content={page.bodyContent} client:visible />
+            <RichText content={page.bodyContent} client:visible/>
         </div>
     </main>
 </Layout>
