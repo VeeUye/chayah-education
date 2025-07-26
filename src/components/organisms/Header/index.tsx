@@ -12,33 +12,40 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  // A helper to combine classes conditionally for the mobile menu
+  const mobileNavClasses = [styles.mobileNav, isOpen ? styles.isOpen : ''].join(
+    ' '
+  )
+
   return (
-    <header className="bg-white shadow">
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <ChayahLogo className={styles.logo} />
-          <span>Chayah Education</span>
+    <header className={styles.header}>
+      <nav className={styles.navigation}>
+        <div className={styles.navContent}>
+          <a href="/" className={styles.brand}>
+            <ChayahLogo className={styles.logo} />
+            <span>Chayah Education</span>
+          </a>
+
           {/* Desktop Menu */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          <div className={styles.desktopNav}>
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="rounded px-3 py-2 text-gray-600 hover:bg-gray-100"
-              >
+              <a key={link.name} href={link.href} className={styles.navLink}>
                 {link.name}
               </a>
             ))}
           </div>
+
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className={styles.mobileMenuButtonContainer}>
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800"
+              className={styles.mobileMenuButton}
               aria-label="toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+              <svg viewBox="0 0 24 24" className={styles.hamburgerIcon}>
                 <path
                   fillRule="evenodd"
                   d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
@@ -47,13 +54,14 @@ const Header = () => {
             </button>
           </div>
         </div>
+
         {/* Mobile Menu */}
-        <div className={`${isOpen ? 'block' : 'hidden'} mt-4 md:hidden`}>
+        <div id="mobile-menu" className={mobileNavClasses}>
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="block rounded px-3 py-2 text-gray-600 hover:bg-gray-100"
+              className={styles.mobileNavLink}
             >
               {link.name}
             </a>

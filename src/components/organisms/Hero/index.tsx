@@ -1,6 +1,5 @@
 import heroImage from '../../../assets/hero-4.jpg'
 import styles from './styles.module.scss'
-import { Container } from '../../../layouts/Container'
 
 interface HeroProps {
   title: string

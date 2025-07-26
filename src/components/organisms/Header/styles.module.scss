@@ -1,4 +1,113 @@
+@use 'src/styles/abstracts/variables' as *;
+
+// --- Base Styles ---
 .logo {
   width: auto;
   height: 60px;
+}
+
+// --- Component Styles ---
+.header {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); // Replicates 'shadow'
+  position: sticky;
+  top: 0;
+  z-index: 10; // Ensures header stays on top
+}
+
+.navigation {
+  // Replicates 'container mx-auto px-6 py-4'
+  // Consider using your global Container component here for consistency.
+  max-width: $max-width-container;
+  margin-inline: auto;
+  padding: 1rem 1.5rem;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+
+  span {
+    // Hides the text on very small screens if needed, but keeps the logo
+    @media (max-width: 380px) {
+      display: none;
+    }
+  }
+}
+
+.desktopNav {
+  display: none; // Hidden on mobile by default
+
+  @media (min-width: 768px) {
+    // Visible on medium screens and up
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; // Replicates 'space-x-6'
+  }
+}
+
+.navLink {
+  padding: 0.5rem 0.75rem; // Replicates 'px-3 py-2'
+  border-radius: 0.375rem; // Replicates 'rounded'
+  color: #4b5563; // Replicates 'text-gray-600'
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #f3f4f6; // Replicates 'hover:bg-gray-100'
+  }
+}
+
+.mobileMenuButtonContainer {
+  @media (min-width: 768px) {
+    display: none; // Hide hamburger button on desktop
+  }
+}
+
+.mobileMenuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: #4b5563; // Replicates 'text-gray-600'
+
+  &:hover,
+  &:focus {
+    color: #1f2937; // Replicates 'hover:text-gray-800'
+    outline: none;
+  }
+}
+
+.hamburgerIcon {
+  height: 1.5rem; // Replicates 'h-6'
+  width: 1.5rem; // Replicates 'w-6'
+  fill: currentColor;
+}
+
+.mobileNav {
+  display: none;
+  margin-top: 1rem; // Replicates 'mt-4'
+
+  &.isOpen {
+    display: block; // This class is added dynamically with JS
+  }
+
+  @media (min-width: 768px) {
+    display: none !important; // Ensure it's always hidden on desktop
+  }
+}
+
+.mobileNavLink {
+  @extend .navLink; // Inherits all styles from .navLink
+  display: block; // Makes the link take up the full width
 }
