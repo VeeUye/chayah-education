@@ -1,23 +1,19 @@
 @use 'src/styles/abstracts/variables' as *;
 
-// --- Base Styles ---
 .logo {
   width: auto;
   height: 60px;
 }
 
-// --- Component Styles ---
 .header {
   background-color: white;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); // Replicates 'shadow'
   position: sticky;
   top: 0;
-  z-index: 10; // Ensures header stays on top
+  z-index: 10;
 }
 
 .navigation {
-  // Replicates 'container mx-auto px-6 py-4'
-  // Consider using your global Container component here for consistency.
   max-width: $max-width-container;
   margin-inline: auto;
   padding: 1rem 1.5rem;

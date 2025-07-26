@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ChayahLogo from '../../../assets/logo-transparant-no-text.svg?react'
+import logo from '../../../assets/tree-logo.png'
 import styles from './styles.module.scss'
 
 const navLinks = [
@@ -22,7 +22,13 @@ const Header = () => {
       <nav className={styles.navigation}>
         <div className={styles.navContent}>
           <a href="/" className={styles.brand}>
-            <ChayahLogo className={styles.logo} />
+            <img
+              src={logo.src}
+              alt="Image of a tree"
+              className={styles.logo}
+              loading="lazy"
+              aria-hidden="true"
+            />
             <span>Chayah Education</span>
           </a>
 
