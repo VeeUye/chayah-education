@@ -1,9 +1,5 @@
 @use 'src/styles/abstracts/variables' as *;
 
-.logo {
-  width: auto;
-  height: 60px;
-}
 
 .header {
   background-color: white;
@@ -16,7 +12,7 @@
 .navigation {
   max-width: 1700px;
   margin-inline: auto;
-  padding: .5rem 1.5rem;
+  padding: .4rem 1.5rem;
 }
 
 .navContent {
@@ -37,11 +33,15 @@
   .logo {
     height: 50px;
     width: auto;
-    margin: .75rem 0;
   }
 
   span {
+    font-size: 22px;
     font-weight: 600;
+    letter-spacing: -1px;
+    color: #4b5563;
+    margin-top: -4px;
+    margin-left: -8px;
 
     &:hover {
       color: #D25421;
@@ -51,6 +51,7 @@
       display: none;
     }
   }
+
 }
 
 .desktopNav {
