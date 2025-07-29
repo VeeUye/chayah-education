@@ -20,12 +20,12 @@
   height: 60vh;
   object-fit: cover;
 
-  @include below(1200px) {
-    display: none;
+  @include below(1280px) {
+    width: 1280px;
   }
-
-  //TODO fix the height at 540px at below 1280px
 }
+
+//TODO prevent hero text from shrinking
 
 .heroOverlay {
   display: grid;
