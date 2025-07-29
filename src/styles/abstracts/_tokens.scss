@@ -16,25 +16,35 @@
   --font-family-mono: #{$font-family-mono};
 
   // Font Size Tokens (using rems for accessibility)
-  --font-size-xs: 0.75rem;   // 12px
-  --font-size-sm: 0.875rem;  // 14px
-  --font-size-md: 1rem;      // 16px
-  --font-size-lg: 1.125rem;  // 18px
-  --font-size-xl: 1.25rem;   // 20px
+  --font-size-xs: 0.75rem; // 12px
+  --font-size-sm: 0.875rem; // 14px
+  --font-size-md: 1rem; // 16px
+  --font-size-lg: 1.125rem; // 18px
+  --font-size-xl: 1.25rem; // 20px
 
   // Spacing Tokens
   --spacing-1: #{$spacing-unit * 0.5}; // 4px
-  --spacing-2: #{$spacing-unit};       // 8px
+  --spacing-2: #{$spacing-unit}; // 8px
   --spacing-3: #{$spacing-unit * 1.5}; // 12px
-  --spacing-4: #{$spacing-unit * 2};   // 16px
-  --spacing-6: #{$spacing-unit * 3};   // 24px
-  --spacing-8: #{$spacing-unit * 4};   // 32px
+  --spacing-4: #{$spacing-unit * 2}; // 16px
+  --spacing-6: #{$spacing-unit * 3}; // 24px
+  --spacing-8: #{$spacing-unit * 4}; // 32px
 
   // Shadow Tokens
   --shadow-sm: #{$shadow-sm};
   --shadow-md: #{$shadow-md};
   --shadow-lg: #{$shadow-lg};
   --shadow-xl: #{$shadow-xl};
+
+  // Breakpoints
+
+  $breakpoints: (
+          'small-mobile': 320px,
+          'mobile': 480px,
+          'tablet': 768px,
+          'desktop': 1024px,
+          'widescreen': 1600px
+  );
 
   // Other Tokens
   --border-radius-sm: #{$border-radius-sm};

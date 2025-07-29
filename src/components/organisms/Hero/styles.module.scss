@@ -1,5 +1,7 @@
 @use 'src/styles/abstracts/mixins' as *;
 @use 'src/styles/abstracts/variables' as *;
+@use 'src/styles/abstracts/media-queries' as *;
+
 
 .base {
   display: grid;
@@ -17,6 +19,12 @@
   width: 100%;
   height: 60vh;
   object-fit: cover;
+
+  @include below(1200px) {
+    display: none;
+  }
+
+  //TODO fix the height at 540px at below 1280px
 }
 
 .heroOverlay {
@@ -39,7 +47,7 @@
 .heroTitle {
   font-weight: bold;
   font-size: 4rem;
-  letter-spacing: -1px;
+  letter-spacing: -1 px;
   margin-bottom: 0;
 }
 

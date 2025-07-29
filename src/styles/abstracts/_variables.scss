@@ -1,4 +1,3 @@
-
 // 🎨 Colors
 $color-blue-100: #e0f2fe;
 $color-blue-300: #7dd3fc;
@@ -17,7 +16,6 @@ $font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvet
 $font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
 $font-size-base: 16px; // root for `rem` calculations
-
 
 
 // Spacing
@@ -40,7 +38,6 @@ $shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 // Responsive Spacing Map
 // Format: 'key': (mobile-value, tablet-value, desktop-value)
 $responsive-spacing: (
-  // 👇 We'll use this key for our container's padding
         'container': (var(--spacing-4), 2rem, 3rem), // Mobile: 16px, Tablet: 32px, Desktop: 48px
         'gutter': (var(--spacing-4), 1.5rem, 2rem)
 );

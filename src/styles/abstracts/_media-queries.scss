@@ -1,0 +1,45 @@
+// Helper function to get the breakpoint value
+@function get-breakpoint-value($key) {
+  @if type-of($key) == 'string' {
+    @if map-has-key($breakpoints, $key) {
+      @return map-get($breakpoints, $key);
+    }
+    @warn "Breakpoint '#{$key}' not found in $breakpoints map.";
+    @return null;
+  } @else if type-of($key) == 'number' {
+    @return $key;
+  }
+  @warn "'#{$key}' is not a valid breakpoint. Use a name from your map or a number.";
+  @return null;
+}
+
+// 'above' mixin (min-width)
+@mixin above($breakpoint) {
+  $value: get-breakpoint-value($breakpoint);
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+// 'below' mixin (max-width)
+@mixin below($breakpoint) {
+  $value: get-breakpoint-value($breakpoint);
+  @if $value {
+    @media (max-width: ($value - 1px)) {
+      @content;
+    }
+  }
+}
+
+// 'between' mixin (min-width and max-width)
+@mixin between($lower, $upper) {
+  $lower-value: get-breakpoint-value($lower);
+  $upper-value: get-breakpoint-value($upper);
+  @if $lower-value and $upper-value {
+    @media (min-width: $lower-value) and (max-width: ($upper-value - 1px)) {
+      @content;
+    }
+  }
+}
