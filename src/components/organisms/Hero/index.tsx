@@ -1,4 +1,4 @@
-import heroImage from '../../../assets/hero-4.jpg'
+import heroImage from '../../../assets/hero-latest.svg'
 import styles from './styles.module.scss'
 
 interface HeroProps {
@@ -12,6 +12,14 @@ const Hero = ({ title, subtitle, buttonText, buttonLink }: HeroProps) => {
   return (
     <>
       <section className={styles.base}>
+        <div className={styles.heroText}>
+          <h1 className={styles.heroTitle}>{title}</h1>
+          <p className={styles.heroSubtitle}>{subtitle}</p>
+          <a href={buttonLink} className={styles.heroButton}>
+            {buttonText}
+          </a>
+        </div>
+
         <img
           src={heroImage.src}
           alt="Children and teacher with hands raised"
@@ -19,15 +27,7 @@ const Hero = ({ title, subtitle, buttonText, buttonLink }: HeroProps) => {
           loading="lazy"
           aria-hidden="true"
         />
-        <div className={styles.heroOverlay}>
-          <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>{title}</h1>
-            <p className={styles.heroSubtitle}>{subtitle}</p>
-            <a href={buttonLink} className={styles.heroButton}>
-              {buttonText}
-            </a>
-          </div>
-        </div>
+        <div className={styles.heroOverlay}></div>
       </section>
     </>
   )
