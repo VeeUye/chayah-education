@@ -14,12 +14,14 @@
 
   --hero-height: 40vh;
 
+  height: var(--hero-height);
+
   @include above(780px) {
     --hero-height: 50vh;
   }
 
   @include above(1280px) {
-    --hero-height: 60vh;
+    --hero-height: 70vh;
   }
 }
 
@@ -42,9 +44,10 @@
 }
 
 .heroImage {
-  flex: 1;
-  height: 60vh;
-  //object-fit: cover;
+  //flex: 1;
+  flex-shrink: 0;
+  height: var(--hero-height);
+  object-position: bottom;
   overflow: hidden;
   z-index: 0;
 }
