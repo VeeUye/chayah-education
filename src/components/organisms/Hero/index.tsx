@@ -1,4 +1,7 @@
 import heroImage from '../../../assets/hero-latest.svg'
+import { Button } from '@radix-ui/themes'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
+
 import styles from './styles.module.scss'
 
 interface HeroProps {
@@ -15,8 +18,11 @@ const Hero = ({ title, subtitle, buttonText, buttonLink }: HeroProps) => {
         <div className={styles.heroText}>
           <h1 className={styles.heroTitle}>{title}</h1>
           <p className={styles.heroSubtitle}>{subtitle}</p>
-          <a href={buttonLink} className={styles.heroButton}>
-            {buttonText}
+          <a href={buttonLink}>
+            <Button size="3">
+              {buttonText}
+              <ArrowRightIcon />
+            </Button>
           </a>
         </div>
 
