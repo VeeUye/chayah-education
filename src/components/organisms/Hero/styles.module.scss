@@ -2,26 +2,23 @@
 @use 'src/styles/abstracts/variables' as *;
 @use 'src/styles/abstracts/media-queries' as *;
 
-
 .base {
-
   position: relative;
-
+  overflow: hidden;
   --hero-height: 40vh;
-
   height: var(--hero-height);
 
-
+  display: flex;
+  align-items: center;
 }
 
 .inner {
   margin: 0 auto;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+  padding: 0 3rem;
   max-width: 1280px;
-  color: white;
-
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .heroOverlay {
@@ -29,7 +26,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--hero-height);
+  height: 100%;
   display: block;
   background: linear-gradient(to bottom, rgba(128, 63, 15, 0.35), rgba(128, 63, 15, 0.15));
   z-index: 1;
@@ -37,26 +34,72 @@
 }
 
 .heroText {
-  z-index: 2;
-  max-width: 800px;
+  color: white;
+  max-width: 55%;
   min-width: 400px;
-  margin-left: 60px;
+
+}
+
+.heroSubtitle {
+  @include below(1027px) {
+    max-width: 400px;
+
+  }
 }
 
 .heroImageWrapper {
-  height: var(--hero-height);
-  object-position: bottom;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
-  flex-shrink: 0;
+}
+
+.heroImage {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 95%;
+  width: auto;
+  object-fit: cover;
+  object-position: bottom;
+}
 
 
+@include below(1154px) {
+  .heroImage {
+    height: 500px;
+    right: -100px;
+  }
+}
+
+@include below(900px) {
+  .heroText {
+    max-width: 70%;
+    min-width: 320px;
+  }
+}
+
+@include below(768px) {
+  .base {
+    justify-content: center;
+    text-align: center;
+  }
+  .heroText {
+    max-width: 100%;
+  }
+
+  .heroImage {
+    opacity: 0.3;
+    right: -200px;
+  }
 }
 
 .heroTitle {
   font-weight: bold;
   font-size: 4rem;
-  letter-spacing: -1 px;
+  letter-spacing: -1px;
   margin-bottom: 0;
   line-height: 1;
 }
