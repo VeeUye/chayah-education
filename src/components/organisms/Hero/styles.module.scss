@@ -4,25 +4,24 @@
 
 
 .base {
-  display: flex;
 
-  align-items: center;
-  justify-content: center;
   position: relative;
-  gap: 2rem;
-  color: white;
 
   --hero-height: 40vh;
 
   height: var(--hero-height);
 
-  @include above(780px) {
-    --hero-height: 50vh;
-  }
 
-  @include above(1280px) {
-    --hero-height: 70vh;
-  }
+}
+
+.inner {
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1280px;
+  color: white;
+
 }
 
 .heroOverlay {
@@ -32,7 +31,7 @@
   width: 100%;
   height: var(--hero-height);
   display: block;
-  background: linear-gradient(to bottom, rgba(128, 63, 15, 0.5), rgba(128, 63, 15, 0.15));
+  background: linear-gradient(to bottom, rgba(128, 63, 15, 0.35), rgba(128, 63, 15, 0.15));
   z-index: 1;
   pointer-events: none;
 }
@@ -40,16 +39,18 @@
 .heroText {
   z-index: 2;
   max-width: 800px;
+  min-width: 400px;
   margin-left: 60px;
 }
 
-.heroImage {
-  //flex: 1;
-  flex-shrink: 0;
+.heroImageWrapper {
   height: var(--hero-height);
   object-position: bottom;
   overflow: hidden;
   z-index: 0;
+  flex-shrink: 0;
+
+
 }
 
 .heroTitle {
@@ -67,12 +68,7 @@
 }
 
 .heroButton {
-  margin-left: auto;
-  display: inline-block;
-  background-color: white;
-  color: #333;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5rem;
+  margin-top: 1rem;
   text-decoration: none;
   font-weight: bold;
   text-shadow: none;
