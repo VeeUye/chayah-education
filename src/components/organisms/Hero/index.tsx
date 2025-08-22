@@ -29,11 +29,11 @@ const Hero = ({ title, subtitle, buttonText, buttonLink }: HeroProps) => {
       <div className={styles.inner}>
         <div className={styles.heroText}>
           <h1 className={styles.heroTitle}>{title}</h1>
-          <p className={styles.heroSubtitle}></p>
+          <p className={styles.heroSubtitle}>{subtitle}</p>
           <a href={buttonLink}>
             <Button size="3" className={styles.heroButton}>
               {buttonText}
-              <ArrowRightIcon />
+              <ArrowRightIcon className={styles.arrow} />
             </Button>
           </a>
         </div>

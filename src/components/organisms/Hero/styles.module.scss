@@ -10,6 +10,13 @@
 
   display: flex;
   align-items: center;
+
+  @include below(1039px) {
+    height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+  }
 }
 
 .inner {
@@ -19,6 +26,8 @@
   width: 100%;
   position: relative;
   z-index: 2;
+
+
 }
 
 .heroOverlay {
@@ -38,13 +47,13 @@
   max-width: 55%;
   min-width: 400px;
 
-}
-
-.heroSubtitle {
-  @include below(1027px) {
-    max-width: 400px;
+  @include below(1039px) {
+    margin-top: 6rem;
+    max-width: 100%;
+    min-width: 320px;
 
   }
+
 }
 
 .heroImageWrapper {
@@ -54,6 +63,7 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+
 }
 
 .heroImage {
@@ -64,37 +74,19 @@
   width: auto;
   object-fit: cover;
   object-position: bottom;
-}
 
-
-@include below(1154px) {
-  .heroImage {
+  @include below(1154px) {
     height: 500px;
     right: -100px;
   }
+
+  @include below(1039px) {
+    right: -80px;
+    height: 65%;
+
+  }
 }
 
-@include below(900px) {
-  .heroText {
-    max-width: 70%;
-    min-width: 320px;
-  }
-}
-
-@include below(768px) {
-  .base {
-    justify-content: center;
-    text-align: center;
-  }
-  .heroText {
-    max-width: 100%;
-  }
-
-  .heroImage {
-    opacity: 0.3;
-    right: -200px;
-  }
-}
 
 .heroTitle {
   font-weight: bold;
@@ -102,12 +94,22 @@
   letter-spacing: -1px;
   margin-bottom: 0;
   line-height: 1;
+
+  @include below(1039px) {
+    font-size: 6rem;
+
+  }
 }
 
 .heroSubtitle {
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: .5rem;
+
+  @include below(1039px) {
+    font-size: 2rem;
+
+  }
 }
 
 .heroButton {
@@ -117,8 +119,22 @@
   text-shadow: none;
   transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
 
+  @include below(1039px) {
+    margin-top: 3.5rem;
+    height: 80px;
+    width: 304px;
+    font-size: 2rem;
+  }
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.arrow {
+  @include below(1039px) {
+    height: 30px;
+    width: 30px;
   }
 }
