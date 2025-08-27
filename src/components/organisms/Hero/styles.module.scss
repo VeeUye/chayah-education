@@ -1,140 +1,101 @@
 @use 'src/styles/abstracts/mixins' as *;
 @use 'src/styles/abstracts/variables' as *;
 @use 'src/styles/abstracts/media-queries' as *;
+@use 'src/styles/abstracts/functions' as *;
 
-.base {
+.section {
   position: relative;
-  overflow: hidden;
-  --hero-height: 40vh;
-  height: var(--hero-height);
-
-  display: flex;
-  align-items: center;
-
-  @include below(1039px) {
-    height: 100vh;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
-  }
 }
 
 .inner {
-  margin: 0 auto;
-  padding: 0 3rem;
-  max-width: 1280px;
-  width: 100%;
   position: relative;
   z-index: 2;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
 
-
-}
-
-.heroOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: linear-gradient(to bottom, rgba(128, 63, 15, 0.35), rgba(128, 63, 15, 0.15));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.heroText {
-  color: white;
-  max-width: 55%;
-  min-width: 400px;
-
-  @include below(1039px) {
-    margin-top: 6rem;
-    max-width: 100%;
-    min-width: 320px;
-
+  @include below(768px) {
+    flex-direction: column;
   }
+}
 
+.leftColumn {
+  flex: 1 1 50%;
+  padding: gutter(8) gutter(3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--gray-1);
+
+  @include below(768px) {
+    min-height: 170px;
+    padding: gutter(4) gutter(2) 0;
+  }
+}
+
+.rightColumn {
+  flex: 1 1 50%;
+  min-height: 450px;
+
+  @include below(768px) {
+    width: 100%;
+    min-height: 400px;
+    margin-top: gutter(4);
+  }
 }
 
 .heroImageWrapper {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  width: 60%;
   height: 100%;
-  z-index: 0;
+  z-index: 1;
 
+  @include below(768px) {
+    position: relative;
+    z-index: auto;
+    left: auto;
+    width: 100%;
+  }
 }
 
 .heroImage {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 95%;
-  width: auto;
+  display: block;
   object-fit: cover;
-  object-position: bottom;
 
-  @include below(1154px) {
-    height: 500px;
-    right: -100px;
-  }
+  width: 100%;
 
-  @include below(1039px) {
-    right: -80px;
-    height: 65%;
+  transform: translateY(-100px);
+  height: calc(100% + 100px);
 
+  @include below(768px) {
+
+    transform: translateY(0);
+    height: 100%;
   }
 }
 
+.heroText {
+  padding-left: gutter(2);
+  padding-right: gutter(2);
+}
 
-.heroTitle {
-  font-weight: bold;
-  font-size: 4rem;
-  letter-spacing: -1px;
-  margin-bottom: 0;
+.heroHeading {
+  color: var(--gray-12);
+  font-size: 40px;
+  font-weight: 600;
   line-height: 1;
-
-  @include below(1039px) {
-    font-size: 6rem;
-
-  }
+  margin-bottom: gutter(1);
 }
 
 .heroSubtitle {
-  font-size: 1.5rem;
-  margin-top: 0;
-  margin-bottom: .5rem;
-
-  @include below(1039px) {
-    font-size: 2rem;
-
-  }
+  color: var(--gray-11);
+  margin-bottom: gutter(3.5);
+  font-size: 17px;
 }
 
 .heroButton {
-  margin-top: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  text-shadow: none;
-  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
-
-  @include below(1039px) {
-    margin-top: 3.5rem;
-    height: 80px;
-    width: 304px;
-    font-size: 2rem;
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.arrow {
-  @include below(1039px) {
-    height: 30px;
-    width: 30px;
-  }
+  margin-bottom: gutter(2);
 }

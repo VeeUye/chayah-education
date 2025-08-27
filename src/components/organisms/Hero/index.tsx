@@ -1,4 +1,4 @@
-import heroImage from '../../../assets/hero-latest.svg'
+import heroImage from '../../../assets/hero.jpg'
 import { Button } from '@radix-ui/themes'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
 
@@ -13,29 +13,30 @@ interface HeroProps {
 
 const Hero = ({ title, subtitle, buttonText, buttonLink }: HeroProps) => {
   return (
-    <section className={styles.base}>
-      <div className={styles.heroImageWrapper}>
-        <img
-          src={heroImage.src}
-          alt="Children and teacher with hands raised"
-          className={styles.heroImage}
-          loading="lazy"
-          aria-hidden="true"
-        />
-      </div>
-
-      <div className={styles.heroOverlay}></div>
-
+    <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.heroText}>
-          <h1 className={styles.heroTitle}>{title}</h1>
-          <p className={styles.heroSubtitle}>{subtitle}</p>
-          <a href={buttonLink}>
-            <Button size="3" className={styles.heroButton}>
-              {buttonText}
-              <ArrowRightIcon className={styles.arrow} />
-            </Button>
-          </a>
+        <div className={styles.leftColumn}>
+          <div className={styles.heroText}>
+            <div className={styles.heroHeading}>{title}</div>
+            <div className={styles.heroSubtitle}>{subtitle}</div>
+            <a href={buttonLink}>
+              <Button size="3" className={styles.heroButton}>
+                {buttonText}
+                <ArrowRightIcon />
+              </Button>
+            </a>
+          </div>
+        </div>
+        <div className={styles.rightColumn}>
+          <div className={styles.heroImageWrapper}>
+            <img
+              src={heroImage.src}
+              alt="Smiling student holding books"
+              className={styles.heroImage}
+              loading="lazy"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </div>
     </section>

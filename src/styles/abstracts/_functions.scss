@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+// A simple function to quickly apply consistent gutters to elements
+
+@function gutter($multiplier: 0) {
+  @return 8px * $multiplier
+}
+
+// Calculates a fluid value (like font-size) between a min and max viewport width.
+//
+// @param {Number} $min-vw - The minimum viewport width (e.g., 1039px).
+// @param {Number} $max-vw - The maximum viewport width (e.g., 1280px).
+// @param {Number} $min-val - The value at the minimum viewport width (e.g., 54px).
+// @param {Number} $max-val - The value at the maximum viewport width (e.g., 64px).
+// @return {String} A CSS calc() function for fluid scaling.
+
+@function fluid-value($min-vw, $max-vw, $min-val, $max-val) {
+  // The slope of the line (rate of change)
+  $slope: math.div($max-val - $min-val, $max-vw - $min-vw);
+
+  // The y-intercept of the line
+  $y-intercept: $min-val - $slope * $min-vw;
+
+  // The formula: y = mx + b, where x is 100vw
+  // We return a calc function: slope * 100vw + y-intercept
+  @return calc(#{$slope * 100}vw + #{$y-intercept});
+}
