@@ -59,6 +59,10 @@
     left: auto;
     width: 100%;
   }
+
+  @include above(1430px) {
+    width: 60%;
+  }
 }
 
 .heroImage {
@@ -66,6 +70,7 @@
   object-fit: cover;
 
   width: 100%;
+  //max-width: none;
 
   transform: translateY(-100px);
   height: calc(100% + 100px);
@@ -74,6 +79,11 @@
 
     transform: translateY(0);
     height: 100%;
+  }
+
+  @include above(1440px) {
+    width: unset;
+    max-width: none;
   }
 }
 
