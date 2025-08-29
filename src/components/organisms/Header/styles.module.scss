@@ -1,15 +1,12 @@
 @use 'src/styles/abstracts/variables' as *;
 @use 'src/styles/abstracts/functions' as *;
 
-
 .header {
   position: sticky;
   top: 0;
-  z-index: 10;
   max-width: 1700px;
+  z-index: 10;
   margin-inline: auto;
-
-
 }
 
 .navigation {
@@ -25,47 +22,47 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
   color: inherit;
   font-size: 1.25rem;
   font-weight: 300;
+  text-decoration: none;
+  gap: 0.75rem;
 
   .logo {
-    height: 50px;
     width: auto;
+    height: 50px;
   }
 
   span {
+    margin-top: -4px;
+    margin-left: -8px;
+    color: #4b5563;
     font-size: 22px;
     font-weight: 600;
     letter-spacing: -1px;
-    color: #4b5563;
-    margin-top: -4px;
-    margin-left: -8px;
 
     &:hover {
-      color: #D25421;
+      color: #d25421;
     }
 
-    @media (max-width: 380px) {
+    @media (width <= 380px) {
       display: none;
     }
   }
-
 }
 
 .desktopNav {
   display: none;
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 }
 
-.navLink {
+.navLink,
+.mobileNavLink {
   padding: 0.5rem 0.75rem;
   color: #4b5563;
   font-size: 1rem;
@@ -74,22 +71,22 @@
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    color: #D25421;
+    color: #d25421;
   }
 }
 
 .mobileMenuButtonContainer {
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     display: none;
   }
 }
 
 .mobileMenuButton {
-  background: none;
-  border: none;
-  cursor: pointer;
   padding: 0.25rem;
+  border: none;
+  background: none;
   color: #4b5563;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -99,9 +96,9 @@
 }
 
 .hamburgerIcon {
-  height: 1.5rem;
   width: 1.5rem;
-  fill: currentColor;
+  height: 1.5rem;
+  fill: currentcolor;
 }
 
 .mobileNav {
@@ -112,12 +109,11 @@
     display: block;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     display: none !important;
   }
 }
 
 .mobileNavLink {
-  @extend .navLink;
   display: block;
 }

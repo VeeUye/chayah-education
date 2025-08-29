@@ -1,9 +1,11 @@
 // 🎨 Colors
+// blue
 $color-blue-100: #e0f2fe;
 $color-blue-300: #7dd3fc;
 $color-blue-500: #0ea5e9;
 $color-blue-700: #0369a1;
 
+// grey
 $color-gray-50: #f8fafc;
 $color-gray-100: #f1f5f9;
 $color-gray-300: #cbd5e1;
@@ -12,11 +14,18 @@ $color-gray-700: #334155;
 $color-gray-900: #0f172a;
 
 // ✍️ Typography
-$font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-
+$font-family-sans: -apple-system,
+  blinkmacsystemfont,
+  'Segoe UI',
+  roboto,
+  helvetica,
+  arial,
+  sans-serif,
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol';
+$font-family-mono: 'SFMono-Regular', consolas, 'Liberation Mono', menlo, courier, monospace;
 $font-size-base: 16px; // root for `rem` calculations
-
 
 // Spacing
 $spacing-unit: 8px;
@@ -28,16 +37,14 @@ $transition-duration: 300ms;
 $transition-timing-function: ease-in-out;
 $max-width-container: 1280px;
 
-
 //  Box Shadows
-$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 
 // Responsive Spacing Map
 // Format: 'key': (mobile-value, tablet-value, desktop-value)
 $responsive-spacing: (
-        'container': (var(--spacing-4), 2rem, 3rem), // Mobile: 16px, Tablet: 32px, Desktop: 48px
-        'gutter': (var(--spacing-4), 1.5rem, 2rem)
-);
+  'container': (var(--spacing-4), 2rem, 3rem),
+  'gutter': (var(--spacing-4), 1.5rem, 2));

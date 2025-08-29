@@ -3,11 +3,10 @@
 // A simple function to quickly apply consistent gutters to elements
 
 @function gutter($multiplier: 0) {
-  @return 8px * $multiplier
+  @return 8px * $multiplier;
 }
 
 // Calculates a fluid value (like font-size) between a min and max viewport width.
-//
 // @param {Number} $min-vw - The minimum viewport width (e.g., 1039px).
 // @param {Number} $max-vw - The maximum viewport width (e.g., 1280px).
 // @param {Number} $min-val - The value at the minimum viewport width (e.g., 54px).
