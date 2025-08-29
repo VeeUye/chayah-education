@@ -13,51 +13,53 @@
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: stretch;
+  flex-direction: column-reverse;
 
-  @include below(768px) {
-    flex-direction: column;
+  @include above(768px) {
+    flex-direction: row;
+    align-items: stretch;
   }
 }
 
 .leftColumn {
-  flex: 1 1 50%;
-  padding: gutter(8) gutter(3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: var(--gray-1);
+  min-height: 170px;
+  padding: gutter(4) gutter(2) 0;
 
-  @include below(768px) {
-    min-height: 170px;
-    padding: gutter(4) gutter(2) 0;
+  @include above(768px) {
+    flex: 1 1 50%;
+    padding: gutter(8) gutter(3);
+    min-height: unset;
   }
 }
 
 .rightColumn {
-  flex: 1 1 50%;
-  min-height: 450px;
+  width: 100%;
+  min-height: 400px;
+  margin-top: gutter(4);
 
-  @include below(768px) {
-    width: 100%;
-    min-height: 400px;
-    margin-top: gutter(4);
+  @include above(768px) {
+    flex: 1 1 50%;
+    min-height: 450px;
+    width: auto;
+    margin-top: 0;
   }
 }
 
 .heroImageWrapper {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 60%;
-  height: 100%;
-  z-index: 1;
+  position: relative;
+  width: 100%;
 
-  @include below(768px) {
-    position: relative;
-    z-index: auto;
-    left: auto;
-    width: 100%;
+  @include above(768px) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
   }
 
   @include above(1430px) {
@@ -68,17 +70,13 @@
 .heroImage {
   display: block;
   object-fit: cover;
-
   width: 100%;
-  //max-width: none;
+  height: 100%;
+  transform: translateY(0);
 
-  transform: translateY(-100px);
-  height: calc(100% + 100px);
-
-  @include below(768px) {
-
-    transform: translateY(0);
-    height: 100%;
+  @include above(768px) {
+    height: calc(100% + 100px);
+    transform: translateY(-100px);
   }
 
   @include above(1440px) {
