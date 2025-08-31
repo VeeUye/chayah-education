@@ -108,9 +108,21 @@ $single-column-breakpoint: 920px;
 }
 
 .heroSubtitle {
+  display: block;
   margin-bottom: gutter(3.5);
   color: var(--gray-11);
-  font-size: 17px;
+  font-size: fluid-value(320px, $single-column-breakpoint, 17px, 28px);
+  line-height: 1.2;
+
+  @include above($single-column-breakpoint) {
+    font-size: 24px;
+  }
+
+  span {
+    @include between(920px, 1080px) {
+      display: inline-block;
+    }
+  }
 }
 
 .heroButton {

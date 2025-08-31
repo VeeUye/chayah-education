@@ -11,14 +11,16 @@ interface HeroProps {
   buttonLink: string
 }
 
-const Hero = ({ title, subtitle, buttonText, buttonLink }: HeroProps) => {
+const Hero = ({ title, buttonText, buttonLink }: HeroProps) => {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.leftColumn}>
           <div className={styles.heroText}>
             <div className={styles.heroHeading}>{title}</div>
-            <div className={styles.heroSubtitle}>{subtitle}</div>
+            <div className={styles.heroSubtitle}>
+              Transforming education,{''} <span>one child at a time</span>
+            </div>
             <a href={buttonLink}>
               <Button size="3" className={styles.heroButton}>
                 {buttonText}
