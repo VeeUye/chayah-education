@@ -1,5 +1,7 @@
 @use 'src/styles/abstracts/variables' as *;
 @use 'src/styles/abstracts/functions' as *;
+@use 'src/styles/abstracts/mixins' as *;
+@use 'src/styles/abstracts/media-queries' as *;
 
 .header {
   position: sticky;
@@ -10,7 +12,11 @@
 }
 
 .navigation {
-  padding: gutter(3) gutter(6);
+  padding: gutter(2);
+
+  @include above(460px) {
+    padding: gutter(3);
+  }
 }
 
 .navContent {
@@ -34,8 +40,6 @@
   }
 
   span {
-    margin-top: -4px;
-    margin-left: -8px;
     color: #4b5563;
     font-size: 22px;
     font-weight: 600;
@@ -116,4 +120,45 @@
 
 .mobileNavLink {
   display: block;
+}
+
+//////
+
+.navRoot {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.menuList {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 2px 10px var(--black-a7);
+  list-style: none;
+}
+
+.link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--teal-11);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  outline: none;
+  user-select: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--teal-7);
+  }
+
+  &:hover {
+    background-color: var(--teal-3);
+  }
 }

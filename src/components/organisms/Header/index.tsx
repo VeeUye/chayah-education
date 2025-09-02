@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import logo from '../../../assets/simple-tree.svg'
+import classNames from 'classnames'
+import { NavigationMenu } from 'radix-ui'
+
 import styles from './styles.module.scss'
 
 const navLinks = [
@@ -12,34 +14,29 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  // A helper to combine classes conditionally for the mobile menu
-  const mobileNavClasses = [styles.mobileNav, isOpen ? styles.isOpen : ''].join(
-    ' '
-  )
-
   return (
     <header className={styles.header}>
       <nav className={styles.navigation}>
         <div className={styles.navContent}>
           <a href="/" className={styles.brand}>
-            <img
-              src={logo.src}
-              alt="Image of a tree"
-              className={styles.logo}
-              loading="lazy"
-              aria-hidden="true"
-            />
             <span>Chayah Education</span>
           </a>
 
-          {/* Desktop Menu */}
-          <div className={styles.desktopNav}>
-            {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className={styles.navLink}>
-                {link.name}
-              </a>
-            ))}
-          </div>
+          <NavigationMenu.Root className={styles.navRoot}>
+            <NavigationMenu.List className={styles.menuList}>
+              {navLinks.map((link) => (
+                <NavigationMenu.Item>
+                  <NavigationMenu.Link
+                    className={styles.link}
+                    key={link.name}
+                    href={link.href}
+                  >
+                    {link.name}
+                  </NavigationMenu.Link>
+                </NavigationMenu.Item>
+              ))}
+            </NavigationMenu.List>
+          </NavigationMenu.Root>
 
           {/* Mobile Menu Button */}
           <div className={styles.mobileMenuButtonContainer}>
@@ -62,7 +59,10 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div id="mobile-menu" className={mobileNavClasses}>
+        <div
+          id="mobile-menu"
+          className={classNames(styles.mobileNav, { [styles.isOpen]: isOpen })}
+        >
           {navLinks.map((link) => (
             <a
               key={link.name}
