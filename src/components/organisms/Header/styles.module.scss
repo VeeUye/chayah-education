@@ -119,6 +119,10 @@ $mobile-menu-breakpoint: 590px;
   }
 }
 
+.navRootMobile {
+
+}
+
 .menuList {
   display: flex;
   justify-content: center;
@@ -164,15 +168,12 @@ $mobile-menu-breakpoint: 590px;
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  max-width: 500px;
+  width: 50%;
   height: 100%;
-  max-height: 85vh;
   padding: 25px;
-  border-radius: 6px;
   background-color: var(--gray-1);
   box-shadow: var(--shadow-6);
-  animation: content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: content-show 1s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:focus {
     outline: none;

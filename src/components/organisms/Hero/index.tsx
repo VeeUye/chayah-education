@@ -29,6 +29,7 @@ const Hero = ({ title, buttonText, buttonLink }: HeroProps) => {
             </a>
           </div>
         </div>
+
         <div className={styles.rightColumn}>
           <div className={styles.heroImageWrapper}>
             <img

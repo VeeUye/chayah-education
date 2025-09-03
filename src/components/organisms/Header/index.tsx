@@ -66,6 +66,24 @@ const Header = () => {
                     <Cross2Icon />
                   </button>
                 </Dialog.Close>
+                <NavigationMenu.Root
+                  className={styles.navRootMobile}
+                  orientation="vertical"
+                >
+                  <NavigationMenu.List className={styles.menuListMobile}>
+                    {navLinks.map((link) => (
+                      <NavigationMenu.Item>
+                        <NavigationMenu.Link
+                          className={styles.link}
+                          key={link.name}
+                          href={link.href}
+                        >
+                          {link.name}
+                        </NavigationMenu.Link>
+                      </NavigationMenu.Item>
+                    ))}
+                  </NavigationMenu.List>
+                </NavigationMenu.Root>
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>
