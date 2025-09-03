@@ -57,46 +57,6 @@ $mobile-menu-breakpoint: 590px;
   }
 }
 
-.mobileNavLink {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  color: #4b5563;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    color: #d25421;
-  }
-}
-
-.mobileMenuButtonContainer {
-  @include above($mobile-menu-breakpoint) {
-    display: none;
-  }
-}
-
-.mobileMenuButton {
-  padding: 0.25rem;
-  border: none;
-  background: none;
-  color: var(--slate-10);
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    color: #1f2937;
-    outline: none;
-  }
-}
-
-.hamburgerIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: currentcolor;
-}
-
 .mobileNav {
   display: none;
   margin-top: 1rem;
@@ -119,10 +79,6 @@ $mobile-menu-breakpoint: 590px;
   }
 }
 
-.navRootMobile {
-
-}
-
 .menuList {
   display: flex;
   justify-content: center;
@@ -134,7 +90,19 @@ $mobile-menu-breakpoint: 590px;
   list-style: none;
 }
 
-.link {
+.menuListMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: white;
+  list-style: none;
+}
+
+.link,
+.mobileNavLink {
   display: block;
   padding: 8px 12px;
   border-radius: 4px;
@@ -160,8 +128,19 @@ $mobile-menu-breakpoint: 590px;
 .overlay {
   position: fixed;
   background-color: var(--black-a9);
-  animation: overlay-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
   inset: 0;
+
+  &[data-state='open'] {
+    animation: overlay-show 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &[data-state='closed'] {
+    animation: overlay-hide 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @include above($mobile-menu-breakpoint) {
+    display: none;
+  }
 }
 
 .content {
@@ -170,36 +149,90 @@ $mobile-menu-breakpoint: 590px;
   right: 0;
   width: 50%;
   height: 100%;
-  padding: 25px;
-  background-color: var(--gray-1);
+  padding: gutter(8) gutter(3) gutter(3);
+  background-color: var(--slate-2);
   box-shadow: var(--shadow-6);
-  animation: content-show 1s cubic-bezier(0.16, 1, 0.3, 1);
 
-  &:focus {
+  &[data-state='open'] {
+    animation: content-show 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &[data-state='closed'] {
+    animation: content-hide 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  @include above($mobile-menu-breakpoint) {
+    display: none;
+  }
+}
+
+.mobileMenuButton {
+  padding: gutter(0.25);
+  border: none;
+  background: none;
+  color: var(--slate-11);
+  cursor: pointer;
+
+  @include above($mobile-menu-breakpoint) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: #1f2937;
     outline: none;
   }
 }
 
+.hamburgerIcon {
+  width: gutter(2.5);
+  height: gutter(2.5);
+  fill: var(--slate-11);
+}
+
 .iconButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: gutter(3);
+  right: gutter(2.75);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  background-color: var(--slate-3);
-  color: var(--teal-11);
+  width: gutter(3.5);
+  height: gutter(3.5);
+  border: none;
+  border-radius: gutter(0.5);
+  background-color: transparent;
+
+  svg {
+    width: gutter(2.5);
+    height: gutter(2.5);
+  }
 
   &:hover {
     background-color: var(--teal-4);
   }
 
-  &:focus {
+  &:focus-visible {
     box-shadow: 0 0 0 2px var(--teal-7);
+    outline: none;
   }
+}
+
+.mobileNavLink {
+  margin-bottom: gutter(2);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--teal-7);
+    outline: none;
+  }
+}
+
+.hiddenText {
+  @include hidden-visually;
 }
 
 @keyframes overlay-show {
@@ -212,14 +245,32 @@ $mobile-menu-breakpoint: 590px;
   }
 }
 
-@keyframes content-show {
+@keyframes overlay-hide {
   from {
-    right: -300px;
-    opacity: 0;
+    opacity: 1;
   }
 
   to {
-    right: 0;
-    opacity: 1;
+    opacity: 0;
+  }
+}
+
+@keyframes content-show {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes content-hide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }

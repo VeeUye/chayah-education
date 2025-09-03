@@ -1,6 +1,6 @@
 import { NavigationMenu } from 'radix-ui'
 import { Dialog } from 'radix-ui'
-import { Cross2Icon } from '@radix-ui/react-icons'
+import { Cross1Icon } from '@radix-ui/react-icons'
 
 import styles from './styles.module.scss'
 
@@ -23,12 +23,8 @@ const Header = () => {
           <NavigationMenu.Root className={styles.navRoot}>
             <NavigationMenu.List className={styles.menuList}>
               {navLinks.map((link) => (
-                <NavigationMenu.Item>
-                  <NavigationMenu.Link
-                    className={styles.link}
-                    key={link.name}
-                    href={link.href}
-                  >
+                <NavigationMenu.Item key={link.name}>
+                  <NavigationMenu.Link className={styles.link} href={link.href}>
                     {link.name}
                   </NavigationMenu.Link>
                 </NavigationMenu.Item>
@@ -60,50 +56,29 @@ const Header = () => {
             <Dialog.Portal>
               <Dialog.Overlay className={styles.overlay} />
               <Dialog.Content className={styles.content}>
-                <Dialog.Title>Test</Dialog.Title>
+                <Dialog.Title className={styles.hiddenText}>
+                  Mobile navigation menu
+                </Dialog.Title>
                 <Dialog.Close asChild>
                   <button className={styles.iconButton} aria-label="Close">
-                    <Cross2Icon />
+                    <Cross1Icon />
                   </button>
                 </Dialog.Close>
-                <NavigationMenu.Root
-                  className={styles.navRootMobile}
-                  orientation="vertical"
-                >
-                  <NavigationMenu.List className={styles.menuListMobile}>
-                    {navLinks.map((link) => (
-                      <NavigationMenu.Item>
-                        <NavigationMenu.Link
-                          className={styles.link}
-                          key={link.name}
-                          href={link.href}
-                        >
-                          {link.name}
-                        </NavigationMenu.Link>
-                      </NavigationMenu.Item>
-                    ))}
-                  </NavigationMenu.List>
-                </NavigationMenu.Root>
+                <nav className={styles.mobileNavList}>
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className={styles.mobileNavLink}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </nav>
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>
         </div>
-
-        {/* Mobile Menu */}
-        {/*<div*/}
-        {/*  id="mobile-menu"*/}
-        {/*  className={classNames(styles.mobileNav, { [styles.isOpen]: isOpen })}*/}
-        {/*>*/}
-        {/*  {navLinks.map((link) => (*/}
-        {/*    <a*/}
-        {/*      key={link.name}*/}
-        {/*      href={link.href}*/}
-        {/*      className={styles.mobileNavLink}*/}
-        {/*    >*/}
-        {/*      {link.name}*/}
-        {/*    </a>*/}
-        {/*  ))}*/}
-        {/*</div>*/}
       </nav>
     </header>
   )
