@@ -7,3 +7,5 @@
 
 // 3. Base: Global styles, resets, and default element styles.
 @use 'base/reset';
+@use 'base/typography';
+@import 'base/fonts'; // import necessary here to prevent build failure

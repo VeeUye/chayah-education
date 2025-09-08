@@ -26,11 +26,13 @@ $single-column-breakpoint: 920px;
 .leftColumn {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   min-height: 170px;
-  margin-top: gutter(4);
+  margin-top: gutter(2);
   padding: fluid-value(320px, $single-column-breakpoint, gutter(2), gutter(8)) gutter(2) 0;
   background-color: var(--gray-1);
+  place-items: center center;
 
   @include above($single-column-breakpoint) {
     flex: 1 1 50%;
@@ -90,6 +92,7 @@ $single-column-breakpoint: 920px;
 .heroText {
   padding-left: gutter(2);
   padding-right: gutter(2);
+  text-align: center;
 }
 
 .heroHeading {
@@ -98,29 +101,51 @@ $single-column-breakpoint: 920px;
   font-size: fluid-value(320px, 419px, 30px, 40px);
   font-weight: 600;
   line-height: 1;
+  text-align: center;
 
-  @include between(419px, $single-column-breakpoint) {
-    font-size: fluid-value(419px, 920px, 40px, 60px);
+  @include between(419px, 1137px) {
+    font-size: fluid-value(419px, 920px, 40px, 46px);
   }
 
-  @include above($single-column-breakpoint) {
+  @include above(1137px) {
     font-size: 60px;
   }
 }
 
 .heroSubtitle {
   display: block;
+  max-width: 20ch;
   margin-bottom: gutter(3.5);
   color: var(--gray-11);
   font-size: fluid-value(320px, $single-column-breakpoint, 17px, 28px);
   line-height: 1.2;
+  text-align: center;
+  margin-inline: auto;
+
+  @include between(440px, 920px) {
+    max-width: none;
+  }
+
+  @include above(1137px) {
+    max-width: none;
+  }
 
   @include above($single-column-breakpoint) {
     font-size: 24px;
   }
 
   span {
+    display: block;
+
+    @include between(440px, 920px) {
+      display: inline-block;
+    }
+
     @include between(920px, 1080px) {
+      display: inline-block;
+    }
+
+    @include above(1137px) {
       display: inline-block;
     }
   }

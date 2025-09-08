@@ -36,21 +36,19 @@ const Header = () => {
 
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <div className={styles.mobileMenuButtonContainer}>
-                <button
-                  type="button"
-                  className={styles.mobileMenuButton}
-                  aria-label="toggle menu"
-                  aria-controls="mobile-menu"
-                >
-                  <svg viewBox="0 0 24 24" className={styles.hamburgerIcon}>
-                    <path
-                      fillRule="evenodd"
-                      d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
+              <button
+                type="button"
+                className={styles.mobileMenuButton}
+                aria-label="toggle menu"
+                aria-controls="mobile-menu"
+              >
+                <svg viewBox="0 0 24 24" className={styles.hamburgerIcon}>
+                  <path
+                    fillRule="evenodd"
+                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                  ></path>
+                </svg>
+              </button>
             </Dialog.Trigger>
 
             <Dialog.Portal>

@@ -9,6 +9,7 @@ $mobile-menu-breakpoint: 590px;
   position: sticky;
   top: 0;
   max-width: 1700px;
+  background-color: white;
   z-index: 10;
   margin-inline: auto;
 }
@@ -36,11 +37,6 @@ $mobile-menu-breakpoint: 590px;
   text-decoration: none;
   gap: 0.75rem;
 
-  .logo {
-    width: auto;
-    height: 50px;
-  }
-
   span {
     color: #4b5563;
     font-size: 22px;
@@ -56,17 +52,6 @@ $mobile-menu-breakpoint: 590px;
     }
   }
 }
-
-.mobileNav {
-  display: none;
-  margin-top: 1rem;
-
-  &.isOpen {
-    display: block;
-  }
-}
-
-//////
 
 .navRoot {
   display: none;
@@ -189,8 +174,8 @@ $mobile-menu-breakpoint: 590px;
 }
 
 .hamburgerIcon {
-  width: gutter(2.5);
-  height: gutter(2.5);
+  width: gutter(3.75);
+  height: gutter(3.75);
   fill: var(--slate-11);
 }
 

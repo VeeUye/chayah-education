@@ -1,23 +1,41 @@
+// /Users/veeuye/projects/chayah-education/src/styles/abstracts/_tokens.scss
+
 @use 'variables' as *;
 
-:root {
-  // Color Tokens (Semantic Naming)
-  // Maps the raw color palette to its intended purpose
+// The :root block should ONLY contain CSS Custom Property definitions.
 
-  --color-primary: #{$color-blue-500};
-  --color-primary-hover: #{$color-blue-700};
-  --color-text-primary: #{$color-gray-900};
-  --color-text-secondary: #{$color-gray-500};
-  --color-background: #{$color-gray-50};
+:root {
+  // Color Tokens
+  // You can assign Sass variables directly to CSS variables.
+
+  --color-primary: $color-blue-500;
+  --color-primary-hover: $color-blue-700;
+  --color-text-primary: $color-gray-900;
+  --color-text-secondary: $color-gray-500;
+  --color-background: $color-gray-50;
   --color-surface: #fff;
-  --color-border: #{$color-gray-300};
+  --color-border: $color-gray-300;
 
   // Font Tokens
 
-  --font-family-sans: #{$font-family-sans};
-  --font-family-mono: #{$font-family-mono};
+  --font-family-primary: 'Epunda Slab', serif;
+  --font-family-secondary:
+    inter,
+    system-ui,
+    -apple-system,
+    blinkmacsystemfont,
+    'Segoe UI',
+    roboto,
+    oxygen,
+    ubuntu,
+    cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  --font-family-sans: $font-family-sans;
+  --font-family-mono: $font-family-mono;
 
-  // Font Size Tokens (using rems for accessibility)
+  // Font Size Tokens
 
   --font-size-xs: 0.75rem; // 12px
   --font-size-sm: 0.875rem; // 14px
@@ -28,7 +46,7 @@
   // Spacing Tokens
 
   --spacing-1: #{$spacing-unit * 0.5}; // 4px
-  --spacing-2: #{$spacing-unit}; // 8px
+  --spacing-2: $spacing-unit; // 8px
   --spacing-3: #{$spacing-unit * 1.5}; // 12px
   --spacing-4: #{$spacing-unit * 2}; // 16px
   --spacing-6: #{$spacing-unit * 3}; // 24px
@@ -36,25 +54,15 @@
 
   // Shadow Tokens
 
-  --shadow-sm: #{$shadow-sm};
-  --shadow-md: #{$shadow-md};
-  --shadow-lg: #{$shadow-lg};
-  --shadow-xl: #{$shadow-xl};
-
-  // Breakpoints
-
-  $breakpoints: (
-    'small-mobile': 320px,
-    'mobile': 480px,
-    'tablet': 768px,
-    'desktop': 1024px,
-    'widescreen': 1600px
-  );
+  --shadow-sm: $shadow-sm;
+  --shadow-md: $shadow-md;
+  --shadow-lg: $shadow-lg;
+  --shadow-xl: $shadow-xl;
 
   // Other Tokens
 
-  --border-radius-sm: #{$border-radius-sm};
-  --border-radius-md: #{$border-radius-md};
-  --transition-duration: #{$transition-duration};
-  --transition-timing: #{$transition-timing-function};
+  --border-radius-sm: $border-radius-sm;
+  --border-radius-md: $border-radius-md;
+  --transition-duration: $transition-duration;
+  --transition-timing: $transition-timing-function;
 }
