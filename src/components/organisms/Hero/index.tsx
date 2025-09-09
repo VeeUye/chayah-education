@@ -17,7 +17,7 @@ const Hero = ({ title, buttonText, buttonLink }: HeroProps) => {
       <div className={styles.inner}>
         <div className={styles.leftColumn}>
           <div className={styles.heroText}>
-            <div className={styles.heroHeading}>{title}</div>
+            <h1 className={styles.heroHeading}>{title}</h1>
             <div className={styles.heroSubtitle}>
               Transforming education,{''} <span>one child at a time</span>
             </div>
