@@ -1,5 +1,6 @@
 @use 'sass:meta';
 @use 'sass:map';
+
 /* stylelint-disable */
 // Helper function to get the breakpoint value
 @function get-breakpoint-value($key) {
