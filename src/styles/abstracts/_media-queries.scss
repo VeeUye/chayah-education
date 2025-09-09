@@ -1,15 +1,17 @@
+@use 'sass:meta';
+@use 'sass:map';
 /* stylelint-disable */
 // Helper function to get the breakpoint value
 @function get-breakpoint-value($key) {
   // 1. Wrap conditions in parentheses and create a full if/else chain.
-  @if type-of($key) == 'string' {
-    @if map-has-key($breakpoints, $key) {
-      @return map-get($breakpoints, $key);
+  @if meta.type-of($key) == 'string' {
+    @if map.has-key($breakpoints, $key) {
+      @return map.get($breakpoints, $key);
     }
 
     @warn "Breakpoint '#{$key}' not found in $breakpoints map.";
     @return null;
-  } @else if type-of($key) == 'number' {
+  } @else if meta.type-of($key) == 'number' {
     @return $key;
   } @else {
     @warn "'#{$key}' is not a valid breakpoint. Use a name from your map or a number.";

@@ -1,3 +1,5 @@
+// /Users/veeuye/projects/chayah-education/src/styles/main.scss
+
 // 1. Abstracts: Variables, functions, and mixins that don't output CSS.
 @use 'abstracts/variables';
 @use 'abstracts/mixins';
@@ -8,4 +10,8 @@
 // 3. Base: Global styles, resets, and default element styles.
 @use 'base/reset';
 @use 'base/typography';
-@import 'base/fonts'; // import necessary here to prevent build failure
+
+// FIX: Add a placeholder comment. The Astro config will replace this
+// with the actual @font-face rule during the build process.
+
+/* FONT_FACE_PLACEHOLDER */

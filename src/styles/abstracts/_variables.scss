@@ -47,7 +47,7 @@ $shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 // Format: 'key': (mobile-value, tablet-value, desktop-value)
 $responsive-spacing: (
   'container': (var(--spacing-4), 2rem, 3rem),
-  'gutter': (var(--spacing-4), 1.5rem, 2));
+  'gutter': (var(--spacing-4), 1.5rem, 2rem));
 
 // Breakpoints
 
